@@ -30,23 +30,30 @@ namespace ExpITNumberProcessingLab
             double perDiem = 35.00;
 
             Console.WriteLine("If she starts on " + startDate.ToShortDateString() + ",\n" +
-                "depositing $" +perDiem + " each day, then,");
+                "depositing $" + perDiem.ToString("c2") + " each day, then,");
 
             //after 1 year
             DateTime endDate = new DateTime(2015, 12, 31);
-            Console.WriteLine("after 1 year, she will have $" + calculateBalance(perDiem, startDate, endDate));
+            Console.WriteLine("after 1 year, she will have " + calculateBalance(perDiem, startDate, endDate).ToString("c2"));
 
             //after 2 years
             endDate = new DateTime(2016, 12, 31);
-            Console.WriteLine("after 2 years, she will have $" + calculateBalance(perDiem, startDate, endDate));
+
+            //check if DateTime seems to be correctly treating the leap years
+            //Console.WriteLine((new DateTime (2015,12,31) - new DateTime(2015,1,1)).TotalDays);
+            //Console.WriteLine((new DateTime(2016, 12, 31) - new DateTime(2016, 1, 1)).TotalDays);
+            //Console.WriteLine((new DateTime(2024, 12, 31) - new DateTime(2024, 1, 1)).TotalDays);
+            //seems to work as expected
+            
+            Console.WriteLine("after 2 years, she will have " + calculateBalance(perDiem, startDate, endDate).ToString("c2"));
 
             //after 5 years
             endDate = new DateTime(2019, 12, 31);
-            Console.WriteLine("after 5 years, she will have $" + calculateBalance(perDiem, startDate, endDate));
+            Console.WriteLine("after 5 years, she will have " + calculateBalance(perDiem, startDate, endDate).ToString("c2"));
 
             //after 10 years
             endDate = new DateTime(2024, 12, 31);
-            Console.WriteLine("after 10 years, she will have $" + calculateBalance(perDiem, startDate, endDate));
+            Console.WriteLine("after 10 years, she will have " + calculateBalance(perDiem, startDate, endDate).ToString("c2"));
 
             Console.WriteLine();    //whitespace
             Console.WriteLine();    //whitespace
@@ -162,10 +169,13 @@ namespace ExpITNumberProcessingLab
         //multiplies the amount by the difference between the start date and end date
         //to figure the total, which it returns
         //I am making the assumption that the DateTime struct and its methods
-        //will handle the leap year issues (2016 and 2020 are leap years)
+        //will handle the leap year issues (2016, 2020, and 2024 are leap years)
         static double calculateBalance(double increment, DateTime startDate, DateTime endDate)
         {
-            return ((endDate - startDate).TotalDays * increment);
+            //calculate days between start and end date
+            //add one to account for a deposit on the end date
+            //multiply by increment per day, and return the value
+            return (((endDate - startDate).TotalDays + 1) * increment);
         }
     }
 }
