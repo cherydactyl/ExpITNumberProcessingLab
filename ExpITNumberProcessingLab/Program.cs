@@ -19,7 +19,7 @@ namespace ExpITNumberProcessingLab
 
             // Question: What numberic type should be used?
             // My answer: per the reccomendation we were given, fixed point is a good type for currency,
-            // however, I have used a float for this solution.
+            // however, I have used a double for this solution.
 
             Console.WriteLine("**PART 1: Accumulation");
             Console.WriteLine("A woman deposits $35.00 in her bank account every day.");
@@ -27,9 +27,10 @@ namespace ExpITNumberProcessingLab
             Console.WriteLine();    //whitespace
             //define datetime for January 1, 2015
             DateTime startDate = new DateTime(2015, 1, 1);
-            float perDiem = (float)35.00;
+            double perDiem = 35.00;
 
-            Console.WriteLine("If she starts on " + startDate.ToShortDateString() + " then,");
+            Console.WriteLine("If she starts on " + startDate.ToShortDateString() + ",\n" +
+                "depositing $" +perDiem + " each day, then,");
 
             //after 1 year
             DateTime endDate = new DateTime(2015, 12, 31);
@@ -49,6 +50,10 @@ namespace ExpITNumberProcessingLab
 
             Console.WriteLine();    //whitespace
             Console.WriteLine();    //whitespace
+            Console.WriteLine("Press any key to continue to Part 2.");
+            Console.ReadKey();
+            Console.WriteLine();    //whitespace
+            Console.WriteLine();    //whitespace
 
             /* Land Cost Calculator
              * 
@@ -58,7 +63,7 @@ namespace ExpITNumberProcessingLab
             Console.WriteLine("**Part 2: Land Cost Calculator");
             Console.WriteLine();    //Whitespace
 
-            Console.WriteLine("To calculate the cost of a parcel, please input its dimensions in whole feet (numbers only please):");
+            Console.WriteLine("To calculate the cost of a parcel, please input its dimensions in whole feet\n" + "(numbers only please):");
             Console.WriteLine("What is the length in feet?");
             int length = int.Parse(Console.ReadLine());
             Console.WriteLine("What is the width in feet?");
@@ -78,6 +83,10 @@ namespace ExpITNumberProcessingLab
 
             Console.WriteLine();    //whitespace
             Console.WriteLine();    //whitespace
+            Console.WriteLine("Press any key to continue to Part 3.");
+            Console.ReadKey();
+            Console.WriteLine();    //whitespace
+            Console.WriteLine();    //whitespace
 
             Console.WriteLine("**Part 3: Space Exploration");
             Console.WriteLine();    //Whitespace
@@ -88,8 +97,9 @@ namespace ExpITNumberProcessingLab
              * How fast will it be traveling after 2 hours
             */
 
-            //because we are starting with a fairly high, round number, an integer will do for this purpose
-            int velocity = 10000;
+            //because we are starting with a fairly high, round number, I will use an integer
+            //though some rounding error may be introduced on compounding
+            double velocity = 10000;
 
             Console.WriteLine("For a ship starting at velocity 10,000 mph,\n" +
                 "if it can increase its velocity by 5% for each 30 seconds,");
@@ -98,11 +108,11 @@ namespace ExpITNumberProcessingLab
             //remember that 5 minutes is 300 seconds
             for (int t = 0; t < 300; t += 30)
             {
-                velocity += velocity / 20;    //adding 5% is the same as adding 1/20th
+                velocity *= 1.05;    //adding 5% is like multiplying by 105%
                 //Console.WriteLine(velocity);  //used for debugging checks
             }
             Console.WriteLine("Then after 5 minutes of firing its boosters, \nthe craft will be traveling at " +
-                velocity + " miles per hour");
+                Math.Round(velocity, 0) + " miles per hour");
 
             Console.WriteLine();    //whitespace
             Console.WriteLine("For a ship starting at velocity 10,000 mph,\n" +
@@ -129,7 +139,7 @@ namespace ExpITNumberProcessingLab
                 //inner loop will increment t for burn time
                 for (int endBurn = t + 300; t < endBurn; t += 30)
                 {
-                    velocity += velocity / 20;    //adding 5% is the same as adding 1/20th
+                    velocity *= 1.05;    //adding 5% is like multiplying by 105%
                     //Console.WriteLine(velocity);  //used for debugging checks
                 }
                 //Console.WriteLine("At time " + t + " seconds, the velocity is " + velocity);
@@ -137,7 +147,7 @@ namespace ExpITNumberProcessingLab
 
             Console.WriteLine();    //Whitespace
             Console.WriteLine("At then end of the two hours, the craft is traveling at "
-                + velocity + " miles per hour.");
+                + Math.Round(velocity, 0) + " miles per hour.");
 
 
             //Hold the console open until the user is ready to exit.
@@ -153,7 +163,7 @@ namespace ExpITNumberProcessingLab
         //to figure the total, which it returns
         //I am making the assumption that the DateTime struct and its methods
         //will handle the leap year issues (2016 and 2020 are leap years)
-        static double calculateBalance(float increment, DateTime startDate, DateTime endDate)
+        static double calculateBalance(double increment, DateTime startDate, DateTime endDate)
         {
             return ((endDate - startDate).TotalDays * increment);
         }
