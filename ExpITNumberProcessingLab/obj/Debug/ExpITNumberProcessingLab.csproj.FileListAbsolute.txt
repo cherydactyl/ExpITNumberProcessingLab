@@ -1,0 +1,5 @@
+c:\users\cheryl\documents\visual studio 2013\Projects\ExpITNumberProcessingLab\ExpITNumberProcessingLab\bin\Debug\ExpITNumberProcessingLab.exe.config
+c:\users\cheryl\documents\visual studio 2013\Projects\ExpITNumberProcessingLab\ExpITNumberProcessingLab\bin\Debug\ExpITNumberProcessingLab.exe
+c:\users\cheryl\documents\visual studio 2013\Projects\ExpITNumberProcessingLab\ExpITNumberProcessingLab\bin\Debug\ExpITNumberProcessingLab.pdb
+c:\users\cheryl\documents\visual studio 2013\Projects\ExpITNumberProcessingLab\ExpITNumberProcessingLab\obj\Debug\ExpITNumberProcessingLab.exe
+c:\users\cheryl\documents\visual studio 2013\Projects\ExpITNumberProcessingLab\ExpITNumberProcessingLab\obj\Debug\ExpITNumberProcessingLab.pdb
