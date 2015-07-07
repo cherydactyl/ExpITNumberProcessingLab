@@ -147,6 +147,12 @@ namespace ExpITNumberProcessingLab
             Console.ReadKey();
         }
 
+        //helper method for Part 1
+        //takes a daily increment amount, a start date, and end date
+        //multiplies the amount by the difference between the start date and end date
+        //to figure the total, which it returns
+        //I am making the assumption that the DateTime struct and its methods
+        //will handle the leap year issues (2016 and 2020 are leap years)
         static double calculateBalance(float increment, DateTime startDate, DateTime endDate)
         {
             return ((endDate - startDate).TotalDays * increment);
