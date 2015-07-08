@@ -17,7 +17,7 @@ namespace ExpITNumberProcessingLab
              * Assume she starts her deposits on January 1, 2015
              */
 
-            // Question: What numberic type should be used?
+            // Question: What numeric type should be used?
             // My answer: per the reccomendation we were given, fixed point is a good type for currency,
             // however, I have used a double for this solution, and formatted the output as currency.
 
@@ -86,7 +86,8 @@ namespace ExpITNumberProcessingLab
             decimal areaInSqYards = (decimal)area / 9;
             decimal cost = Math.Round((areaInSqYards * 5) + (decimal)(perimeter * .75), 2);
 
-            Console.WriteLine("The cost for a parcel " + width + " feet  by " + length + " feet is $" + cost + ".");
+            //Console.WriteLine("The cost for a parcel " + width + " feet  by " + length + " feet is $" + cost + ".");
+            Console.WriteLine("The cost for a parcel {0} feet by {1} feet is {2:c}.", width, length, cost);
 
             Console.WriteLine();    //whitespace
             Console.WriteLine();    //whitespace
