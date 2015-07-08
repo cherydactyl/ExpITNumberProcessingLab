@@ -39,7 +39,7 @@ namespace ExpITNumberProcessingLab
             //after 2 years
             endDate = new DateTime(2016, 12, 31);
 
-            //check if DateTime seems to be correctly treating the leap years
+            //check if DateTime functionality seems to be correctly treating the leap years
             //Console.WriteLine((new DateTime (2015,12,31) - new DateTime(2015,1,1)).TotalDays);
             //Console.WriteLine((new DateTime(2016, 12, 31) - new DateTime(2016, 1, 1)).TotalDays);
             //Console.WriteLine((new DateTime(2024, 12, 31) - new DateTime(2024, 1, 1)).TotalDays);
@@ -97,6 +97,7 @@ namespace ExpITNumberProcessingLab
 
             Console.WriteLine("**Part 3: Space Exploration");
             Console.WriteLine();    //Whitespace
+
             /*Space Exploration
              * Once in space, a space ship can increase its velocity by 5% by firing its boosters for 30 seconds.
              * Assume the space craft is travelleing at 10,000 miles per hour.
@@ -104,8 +105,7 @@ namespace ExpITNumberProcessingLab
              * How fast will it be traveling after 2 hours
             */
 
-            //because we are starting with a fairly high, round number, I will use an integer
-            //though some rounding error may be introduced on compounding
+            //define velocity and initiate starting value
             double velocity = 10000;
 
             Console.WriteLine("For a ship starting at velocity 10,000 mph,\n" +
@@ -166,10 +166,6 @@ namespace ExpITNumberProcessingLab
 
         //helper method for Part 1
         //takes a daily increment amount, a start date, and end date
-        //multiplies the amount by the difference between the start date and end date
-        //to figure the total, which it returns
-        //I am making the assumption that the DateTime struct and its methods
-        //will handle the leap year issues (2016, 2020, and 2024 are leap years)
         static double calculateBalance(double increment, DateTime startDate, DateTime endDate)
         {
             //calculate days between start and end date
