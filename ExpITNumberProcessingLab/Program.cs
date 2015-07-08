@@ -19,7 +19,7 @@ namespace ExpITNumberProcessingLab
 
             // Question: What numberic type should be used?
             // My answer: per the reccomendation we were given, fixed point is a good type for currency,
-            // however, I have used a double for this solution.
+            // however, I have used a double for this solution, and formatted the output as currency.
 
             Console.WriteLine("**PART 1: Accumulation");
             Console.WriteLine("A woman deposits $35.00 in her bank account every day.");
@@ -155,7 +155,6 @@ namespace ExpITNumberProcessingLab
             Console.WriteLine();    //Whitespace
             Console.WriteLine("At then end of the two hours, the craft is traveling at "
                 + Math.Round(velocity, 0) + " miles per hour.");
-
 
             //Hold the console open until the user is ready to exit.
             Console.WriteLine();    //whitespace
